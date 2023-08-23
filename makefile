@@ -2,6 +2,8 @@ include git.mk
 
 include caddy.mk
 # include goreman.mk
+include gio.mk
+include go.mk
 include nats.mk
 
 # MUST be last
@@ -14,6 +16,12 @@ export $(PATH):=$(PATH):$(BIN_ROOT)
 
 print:
 	$(MAKE) env-print
+	$(MAKE) caddy-print
+	$(MAKE) go-print
+	$(MAKE) gio-print
+	$(MAKE) nats-print
+
+all: dep-all build-all
 	
 env-print:
 	@echo ""
@@ -24,25 +32,45 @@ env-print:
 	@echo "GIT_USER_REPO_URL:      $(GIT_USER_REPO_URL)"
 
 	
-dep-tools:
+dep-all:
 	$(MAKE) caddy-dep
+	$(MAKE) gio-dep
 	$(MAKE) nats-dep
-
 	
 start-caddy:
 	$(MAKE) caddy-server-run
 	# https://browse.localhost/
 	# https://bin.localhost/
+
+	# Client is here:
+	# https://browse.localhost/cmd/client/.bin/giobuild/web_wasm/gio-htmx.web/
+
 start-nats:
 	$(MAKE) nats-server-run
 	# Listening for websocket clients on wss://0.0.0.0:443
 	# Listening for client connections on 0.0.0.0:4222
 	
-	
-build:
-	mkdir -p $(BIN_ROOT)
+mod:
+	go mod tidy
 
-	# build ...
-build-del:
-	rm -rf $(BIN_ROOT)
+
+build-all: client-build-all
+
+CLIENT_SRC_FSAPTH=$(PWD)/cmd/client
+CLIENT_SRC_NAME=gio-htmx
+build-client:
+	$(MAKE) GIO_SRC_NAME=$(CLIENT_SRC_NAME) GIO_SRC_FSPATH=$(CLIENT_SRC_FSAPTH) gio-build
+build-client-all:
+	$(MAKE) GIO_SRC_NAME=$(CLIENT_SRC_NAME) GIO_SRC_FSPATH=$(CLIENT_SRC_FSAPTH) gio-build-all
+
+SERVER_SRC_FSAPTH=$(PWD)/cmd/server
+SERVER_SRC_NAME=gio-htmx-server
+
+build-server:
+	$(MAKE) GO_SRC_NAME=$(SERVER_SRC_NAME) GO_SRC_FSPATH=$(SERVER_SRC_FSAPTH) go-build
+build-server-all:
+	$(MAKE) GO_SRC_NAME=$(SERVER_SRC_NAME) GO_SRC_FSPATH=$(SERVER_SRC_FSAPTH) go-build-all
+
+run:
+
 	

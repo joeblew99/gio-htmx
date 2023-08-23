@@ -16,7 +16,7 @@ make build
 
 ## Docs
 
-See the [Doc](doc/README.md) folder.
+See the [Doc](doc/README.md) folder to see how it works.
 
 ## Contribute
 

@@ -20,8 +20,13 @@
 # Go workspace file
 go.work
 
-# OUR special folder.
+
+
+# OUR special stuff...
 .bin
 .data
 .env-git
+localhost-key.pem
+localhost.pem
+
 
