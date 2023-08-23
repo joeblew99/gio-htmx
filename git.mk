@@ -13,8 +13,13 @@ git-init:
 	git config --local user.email "$(GIT_USER_EMAIL)"
 
 	git config --local core.sshCommand "ssh -i $(GIT_USER_SSH)"
+git-upstream-set:
+	# use this if you forked...
+	git remote add upstream https://github.com/joeblew99/gio-htmx.git
+git-remote:
+	git remote -v
 git-pull:
-	git pull
+	git pull upstream
 git-push:
 	git push
 	open $(GIT_USER_REPO_URL)
