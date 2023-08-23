@@ -19,7 +19,7 @@ git-upstream-set:
 git-remote:
 	git remote -v
 git-pull:
-	git pull upstream
+	git pull upstream main
 git-push:
 	git push
 	open $(GIT_USER_REPO_URL)
