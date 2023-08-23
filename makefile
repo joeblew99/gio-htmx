@@ -54,7 +54,7 @@ mod:
 	go mod tidy
 
 
-build-all: client-build-all
+build-all: build-client-all
 
 CLIENT_SRC_FSAPTH=$(PWD)/cmd/client
 CLIENT_SRC_NAME=gio-htmx

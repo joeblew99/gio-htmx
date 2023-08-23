@@ -6,12 +6,11 @@ Its a basic GUI using gioui to allow document interaction using htmx pattern.
 
 ```sh
 
-make dep-tools
+make all
 
 make start-caddy
 make start-nats
 
-make build
 ```
 
 ## Docs
