@@ -48,6 +48,7 @@ GUI - scaffold out 3 pane gui.
 NATS - scaffold out basic nats
 
 - just to get data flowing between client and server
+-https://github.com/ebubekiryigit/go-nats-jetstream-example/tree/main looks good.
 
 Diff
 
