@@ -4,6 +4,7 @@ include .env
 
 print:
 	$(MAKE) env-print
+	
 env-print:
 	@echo ""
 	@echo "-- ENV --"
