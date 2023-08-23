@@ -17,3 +17,4 @@ git-pull:
 	git pull
 git-push:
 	git push
+	open $(GIT_USER_REPO_URL)
