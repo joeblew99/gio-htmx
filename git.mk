@@ -14,7 +14,6 @@ git-init:
 
 	git config --local core.sshCommand "ssh -i $(GIT_USER_SSH)"
 git-upstream-set:
-	# use this if you forked...
 	git remote add upstream https://github.com/joeblew99/gio-htmx.git
 git-remote:
 	git remote -v
