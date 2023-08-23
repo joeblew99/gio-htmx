@@ -4,7 +4,11 @@ basic GUI scaffolds is done.
 
 - just to get the architecture building.
 
-fix gio.mk for windwos
+deck
+
+- add makefile for deck builder that supports fork syncing.
+
+fix gio.mk for windows
 
 - so that for windows buidl the .syso files are deleted after build. 
 - It screws up the 2nd time you build.
@@ -12,11 +16,11 @@ fix gio.mk for windwos
 appicon.png
 
 - just add some default one.
-- gio-mk wants it
+- gio.mk wants it
 
 caddy and nats.mk bins must go to .bin
 
-- change it to buidl to the .bin folder, rather than the gopapth/bin
+- change it to build to the .bin folder, rather than the goapth/bin
 - later change to use aqua registry, but that later.
 
 deeplinks
