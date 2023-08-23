@@ -1,0 +1,13 @@
+# FROM: https://community.hetzner.com/tutorials/caddy-as-simple-reverse-proxy-and-file-server
+
+# https://browse.localhost/
+browse.localhost:443 {
+	file_server browse
+}
+
+# https://bin.localhost/
+# any typical server
+bin.localhost:443 {
+	# pushup
+	reverse_proxy 127.0.0.1:8080
+}
