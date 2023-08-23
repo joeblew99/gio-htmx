@@ -1,43 +1,60 @@
 # docs
 
-## GUI layout
+Using Markup documents for gio with htmx pattern...using x-data.
+
+## GUI
 
 Left pane:
 
-Tree view of what’s on the file system in terms of folders and files.
+- Tree view of what’s on the file system in terms of folders and files.
 
 Middle pane:
 
-The deck gio canvas Renderer.
+- The canvas Renderer.
 
-Right pane: 
+Right pane:
 
-Tree view with the properties of the decksh. You can change properties like sone text t is sent via nats to the backend as a decksh change and changes the decksh and then calculates the diff and publishes it to the nats decksh changed Event which the middle pane gets and it mergers the diff in 
-So the gui above is using nats to edit the decks
+- Tree view with the properties of the document.
 
+## Workflows
 
-## event system
+Open a Project
 
-Nats is a pub sub system that allows the GUI and the Backend "collaborate" over the documents changes.
+- Via the GUI or the CLI. The CLI and GUI are the same binary. The main.go will for the first arg as path to your project folder. If empty it just opens the GUI.
 
+- If you did not use the CLI, The GUI, shows a list of recently used projects. These are stored in the XDG folder. https://git.sr.ht/~eliasnaur/gio/tree/v0.2.0/app/app.go#L51
 
-We don’t need a http router because NATS topics and their subjects are a router.
+Edit a Project
 
-NATS topic: Events
-NATS Subjects withing a topic: The Project ID, and the file system namespace.
-Event Payload: ProjectID, Data ( that represent the intent of the event)
+- Edit the document properties in the Right Pane.
+- Its will fire the Property Change event...
+
+## Events
+
+NATS is a pub sub system that allows the GUI and the Backend "collaborate" over the documents changes.
+
+There is no need for typical router setup because NATS is a virtual router, and so allowing use to do Per Project File based routing, which is exactly what we want.
+
+An event holds:
+
+- NATS topic: "Events"
+- NATS Subject: "Project ID: document XMLPath"
+- NATS Event Payload: "data of the event"
 
 Sequence is like:
 
-- GUI: User changed a property
+- GUI
+  - Registers to Consume all Changed event for its Subject Namespace.
+  - User changes a property
+  - Publishes a Change event to NATS
 
-So if the frontend publishes an x-data event to the x-data topic using a subject that targets where the DeckSh files lives.
+- Service
+  - Consumes Change event
+  - Carries out the change to the document mutating a new document.
+  - Diffs the old and new document.
+  - Publishes a "Changed" event with the subject so the right consumer gets it. You could have 3 GUI open and they each are in change of only one Subject namespace.
 
-Then there is a nats consumer listening to x-data topic and the decksh project it controls.This consumer is a singleton per project. It just started up and lost s for any events that match it’s namespace.
-So you could have 3 projects running on your laptop and they will all interoperate !!!
-So a consumer gets an event and then reaches onto the correct decksh file ( based on the x-data message payload and then makes the changes based on our htmx logic and publishes that xml onto a nats frontend topic with the same subject namespace.
-The frontend gui is subscribing to the frontend topic and then magres the xml I to its xml and renders it based on our htmx logic.
-I know you want to know next what is the manipulation but it’s still too early to know. We both know the concepts of htmx, but I am laying out the events system here first.
-The main thing is that nats.Go being used by the gui and the backend will makes things way way easier because it’s a virtual router and we can use the subject space to target decksh documents that live on the file system. Way way less plumbing work
- I have a makefile that gets nats setup locally so we can use that to get going.
-—-
+- GUI
+  - Consumes the Changed event.
+  - Patches its document with the diff.
+  - Renders.
