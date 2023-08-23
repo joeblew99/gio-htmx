@@ -8,4 +8,6 @@ git-init:
 	git config --local user.name "$(GIT_USER_NAME)"
 	git config --local user.email "$(GIT_USER_EMAIL)"
 
-	git config --local core.sshCommand "ssh -F $(GIT_USER_SSH)"
+	git config --local core.sshCommand "ssh -i $(GIT_USER_SSH)"
+git-pull:
+	git pull
