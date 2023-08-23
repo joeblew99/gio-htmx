@@ -24,8 +24,8 @@ We use ssh signing for github. Steps:
 - fork this repo on github
 - then locally ...
 - clone your repo
-- copy env-template --> .env
-- put your git details in .env
+- copy .env-git-template --> .env-git
+- put your git details in .env-git
 - ```make env-print``` to check them
 - ```make git-init``` to configure git to use them
 - ```make git-upstream-set``` to configure where you will pull upstream changes from

@@ -25,15 +25,21 @@ print:
 
 all: dep-all build-all
 	
-env-print:
+env-git-print:
 	@echo ""
-	@echo "-- ENV --"
+	@echo "-- ENV GIT --"
 	@echo "GIT_USER_NAME:          $(GIT_USER_NAME)"
 	@echo "GIT_USER_EMAIL:         $(GIT_USER_EMAIL)"
 	@echo "GIT_USER_SSH:           $(GIT_USER_SSH)"
 	@echo "GIT_USER_REPO_URL:      $(GIT_USER_REPO_URL)"
-
-	
+	@echo ""
+env-print:
+	@echo ""
+	@echo "-- ENV --"
+	@echo "CADDY_SRC_CONFIG_FSPATH:     $(CADDY_SRC_CONFIG_FSPATH)"
+	@echo "GOREMAN_SRC_CONFIG_FSPATH:   $(GOREMAN_SRC_CONFIG_FSPATH)"
+	@echo "NATS_SRC_CONFIG_FSPATH:      $(NATS_SRC_CONFIG_FSPATH)"
+	@echo ""
 dep-all:
 	$(MAKE) caddy-dep
 	$(MAKE) gio-dep
