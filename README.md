@@ -17,3 +17,7 @@ We use ssh signing for github. Steps:
 - make some change and commit with a message in vscode, etc
 - ```make git-pull``` to catch up to upstream
 - ```make git-push``` to push your changes to you repo, and then PR
+
+## Docs
+
+See the [Doc](doc/README.md) folder.
