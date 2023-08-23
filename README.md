@@ -2,6 +2,23 @@
 
 gui for gio
 
+## Run
+
+```sh
+
+make dep-tools
+
+make start-caddy
+make start-nats
+
+make build
+```
+
+
+## Docs
+
+See the [Doc](doc/README.md) folder.
+
 ## contribute
 
 We use ssh signing for github. Steps:
@@ -18,6 +35,3 @@ We use ssh signing for github. Steps:
 - ```make git-pull``` to catch up to upstream
 - ```make git-push``` to push your changes to you repo, and then PR
 
-## Docs
-
-See the [Doc](doc/README.md) folder.
