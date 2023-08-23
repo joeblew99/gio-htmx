@@ -1,11 +1,36 @@
 # todo
 
-basic scaffolds are done.
+basic GUI scaffolds is done.
+- just to get the architecture building.
 
-fix gio-build for windows so .syso files are deleted after build. It screws up the 2nd time you build.
+fix gio.mk so that for windows buidl the .syso files are deleted after build. 
+- It screws up the 2nd time you build.
 
-scaffold out 3 pane gui. at the moment i just dropped in a GUI markdown demo to get the architecture joined up.
+appicon.png
+- just add some default one.
+- gio-mk wants it
 
-scaffold out basic nats just to get data flowing between client and server
+deeplinks
+- add gio deep link support, so that the Desktop reacts to when a user clicks on a .ext. WTF do we use for a file extension ? .gio maybe.
+- Check that Web works, so that if you have the desktop client it usrs that, and if not it users the web version.
 
-add unified git diff lib, so that we can send deltas between client and server.
+versioning
+- add git version to makefile
+- add version.go, and have gio.mk set LDFLags.
+
+CI
+- add git tag support to makefile.
+- add github workflow that uses the makefile itself to build.
+- add signing. needed for Mac Notary. Need to buy a freaking Apple dev subscription. dam you apple !!
+
+CD
+- add update.go, so that the client can check for software update from caddy hosted binaries.
+
+scaffold out 3 pane gui. 
+- at the moment i just dropped in a GUI markdown demo to get the architecture joined up.
+
+scaffold out basic nats
+- just to get data flowing between client and server
+
+diff
+- add unified git diff lib, so that we can send deltas between client and server.
