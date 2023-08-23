@@ -6,7 +6,7 @@ browse.localhost:443 {
 }
 
 # https://bin.localhost/
-# any typical server
+# for serveing the binaries.
 bin.localhost:443 {
 	# pushup
 	reverse_proxy 127.0.0.1:8080

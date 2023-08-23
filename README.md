@@ -1,6 +1,6 @@
 # gio-htmx
 
-gui for gio
+Its a basic GUI using gioui to allow document interaction using htmx pattern.
 
 ## Run
 
@@ -14,12 +14,11 @@ make start-nats
 make build
 ```
 
-
 ## Docs
 
 See the [Doc](doc/README.md) folder.
 
-## contribute
+## Contribute
 
 We use ssh signing for github. Steps:
 

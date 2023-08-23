@@ -5,6 +5,7 @@ include caddy.mk
 include nats.mk
 
 # MUST be last
+include .env-git
 include .env
 
 # all binaries we make go here.
