@@ -1,7 +1,11 @@
 git-print:
+	@echo ""
+	@echo "-- GIT --"
 
 git-init:
-	# set username, password
-	# st ssh user
-	git config --local user.name "joe"
-	git config --local user.email joblw99@gmail.com
+	# do this after you have locally don a git clone,
+	# so it uses your auth stuff.
+	git config --local user.name "$(GIT_USER_NAME)"
+	git config --local user.email "$(GIT_USER_EMAIL)"
+
+	git config --local core.sshCommand "ssh -F $(GIT_USER_SSH)"
