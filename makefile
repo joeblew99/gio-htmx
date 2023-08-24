@@ -1,10 +1,13 @@
+SC=$(PWD)/_make
+
 include git.mk
 
-include caddy.mk
-include gio.mk
-include go.mk
-include goreman.mk
-include nats.mk
+include $(SC)/caddy.mk
+include $(SC)/gio.mk
+include $(SC)/go.mk
+include $(SC)/goreman.mk
+include $(SC)/minio.mk
+include $(SC)/nats.mk
 
 # MUST be last
 include .env-git
@@ -17,14 +20,10 @@ export $(PATH):=$(PATH):$(BIN_ROOT)
 print:
 	$(MAKE) env-print
 
-	$(MAKE) caddy-print
-	$(MAKE) gio-print
-	$(MAKE) go-print
-	$(MAKE) goreman-print
-	$(MAKE) nats-print
-
 all: dep-all build-all
 	
+### ENV
+
 env-git-print:
 	@echo ""
 	@echo "-- ENV GIT --"
@@ -33,6 +32,7 @@ env-git-print:
 	@echo "GIT_USER_SSH:           $(GIT_USER_SSH)"
 	@echo "GIT_USER_REPO_URL:      $(GIT_USER_REPO_URL)"
 	@echo ""
+
 env-print:
 	@echo ""
 	@echo "-- ENV --"
@@ -40,10 +40,22 @@ env-print:
 	@echo "GOREMAN_SRC_CONFIG_FSPATH:   $(GOREMAN_SRC_CONFIG_FSPATH)"
 	@echo "NATS_SRC_CONFIG_FSPATH:      $(NATS_SRC_CONFIG_FSPATH)"
 	@echo ""
+
+### DEPS
+
+dep-print:
+	$(MAKE) caddy-print
+	$(MAKE) gio-print
+	$(MAKE) go-print
+	$(MAKE) goreman-print
+	$(MAKE) minio-print
+	$(MAKE) nats-print
+
 dep-all:
 	$(MAKE) caddy-dep
 	$(MAKE) gio-dep
 	$(MAKE) goreman-dep
+	$(MAKE) minio-dep
 	$(MAKE) nats-dep
 	
 start-goreman:
