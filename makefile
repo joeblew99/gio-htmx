@@ -90,13 +90,12 @@ start-nats:
 	# Listening for websocket clients on wss://0.0.0.0:443
 	# Listening for client connections on 0.0.0.0:4222
 	
-mod:
-	go mod tidy
-
 
 build-all: build-client-all
+
 CLIENT_SRC_FSAPTH=$(PWD)/cmd/client
 CLIENT_SRC_NAME=gio-htmx
+
 build-client:
 	$(MAKE) GIO_SRC_NAME=$(CLIENT_SRC_NAME) GIO_SRC_FSPATH=$(CLIENT_SRC_FSAPTH) gio-build
 	# hack works for now..

@@ -1,5 +1,10 @@
 # todo
 
+VERY IMPORTANT !
+
+- cmd/release-crush/example creates a binary outside the .bin.
+- fix go.mk so it does not do this, so we do not screw up our git repo.
+
 basic GUI scaffold is done.
 
 - just to get the architecture building.
