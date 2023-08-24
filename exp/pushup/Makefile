@@ -28,6 +28,8 @@ GO_SRC_FSPATH=$(SRC)
 
 build: bin-init
 	$(MAKE) go-build
+	# TODO: in _make/go.mk, add a "go-build-post" target that does this in OS agnostic way.
+	# go-build then checks for GO_SRC_POST_FSPATH, and copies the right binary to GO_SRC_POST_FSPATH.
 	cp $(SRC)/.bin/gobuild/darwin_amd64/$(GO_SRC_NAME) $(BIN_PUS)
 build-all:
 	# FAILS for windows build ?
