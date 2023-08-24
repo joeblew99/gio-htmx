@@ -13,10 +13,18 @@ git-init:
 	git config --local user.email "$(GIT_USER_EMAIL)"
 
 	git config --local core.sshCommand "ssh -i $(GIT_USER_SSH)"
+
 git-upstream-set:
 	git remote add upstream https://github.com/joeblew99/gio-htmx.git
 git-remote:
 	git remote -v
+
+### OPS
+
+# use this to do everything....
+git-all: git-pull git-commit git-push
+	# example make GIT_COMMIT="chore to git.mk" x git-all 
+
 GIT_COMMIT="chore"
 git-commit:
 	git add --all

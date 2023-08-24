@@ -21,7 +21,9 @@ BIN_ROOT=$(PWD)/.bin
 export $(PATH):=$(PATH):$(BIN_ROOT)
 
 print:
+	$(MAKE) env-git-print
 	$(MAKE) env-print
+	
 
 all: dep-all build-all
 
