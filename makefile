@@ -25,8 +25,15 @@ all: dep-all build-all
 
 ### CLEAN
 
-clean:
-	#$(MAKE) go-clean
+clean-os:
+	# delete go stuff on OS that build up.
+	$(MAKE) go-clean-os
+clean-project:
+	# delete any .bin folder
+	$(MAKE) go-clean-bin-run
+
+	# delete any .bin folder
+	$(MAKE) go-clean-data-run
 	
 ### ENV
 
