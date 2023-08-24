@@ -4,6 +4,7 @@ include git.mk
 
 include $(SC)/aqua.mk
 include $(SC)/caddy.mk
+include $(SC)/cockroach.mk
 include $(SC)/gio.mk
 include $(SC)/go.mk
 include $(SC)/goreman.mk
@@ -60,6 +61,7 @@ env-print:
 dep-print:
 	$(MAKE) aqua-print
 	$(MAKE) caddy-print
+	$(MAKE) cockroach-print
 	$(MAKE) gio-print
 	$(MAKE) go-print
 	$(MAKE) goreman-print
@@ -70,6 +72,7 @@ dep-print:
 dep-all:
 	$(MAKE) aqua-dep
 	$(MAKE) caddy-dep
+	$(MAKE) cockroach-dep
 	$(MAKE) gio-dep
 	$(MAKE) goreman-dep
 	$(MAKE) minio-dep

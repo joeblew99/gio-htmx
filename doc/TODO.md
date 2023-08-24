@@ -161,3 +161,10 @@ search
 
 - Zinc is perfect as it can use local and s3.
 - This is so that users can search for any text in or across their projects.
+
+auth and authourisation
+
+- https://github.com/zitadel/zitadel has what we need
+- tie to togthr with NATS
+- use cockroachDB cluster to run it.
+

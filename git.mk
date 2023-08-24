@@ -17,6 +17,10 @@ git-upstream-set:
 	git remote add upstream https://github.com/joeblew99/gio-htmx.git
 git-remote:
 	git remote -v
+GIT_COMMIT="chore"
+git-commit:
+	git add --all
+	git commit -am "$(GIT_COMMIT)"
 git-pull:
 	git pull upstream main
 git-push:
