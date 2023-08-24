@@ -1,0 +1,11 @@
+--- ./deckdsh/small/test-01.dsh
++++ ./deckdsh/small/test-02.dsh
+@@ -2,6 +2,7 @@
+ 
+ 	mid=50
+ 	ty=90
+-	titleX=50
++	titleX=CHANGED
+ 	titleY=92
+ 	titleSize=4
++	NEW=xxxx

@@ -56,6 +56,12 @@ GUI - scaffold out 3 pane gui.
 - at the moment i just dropped in a GUI markdown demo to get the architecture joined up.
 - Add gio-canvas to, but we need a fork of it to add our stuff.
 
+FS Watcher
+
+- Documents can be chnaged by the OS or the user, and not just via the GUI, so we need a FS Watacher, that can also do the diff, as if the GUI did the change.
+- https://github.com/adhocteam/pushup has this !
+
+
 Embedding
 
 - Caddy can embed NATS Leaf so we have both HTTP and NATS transports.

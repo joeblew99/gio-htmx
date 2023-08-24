@@ -1,0 +1,17 @@
+--- ./deckxml/small/test-01.xml
++++ ./deckxml/small/test-02.xml
+@@ -1,12 +1,12 @@
+ <deck>
+ 
+-<canvas width="792" height="612"/>
++<!--DELETED: <canvas width="792" height="612"/> -->
+ <slide>
+ <!--SAME--><text align="c" xp="50" yp="50" sp="10" >decksh tests</text>
+ </slide>
+ 
+ <slide>
+-<!--CHANGED--><text align="c" xp="50" yp="92" sp="4" >Empty</text>
++<!--CHANGED--><text align="c" xp="50" yp="92" sp="4" >Empty - CHANGED</text>
+ </slide>
+ 
+ <slide bg="orange">

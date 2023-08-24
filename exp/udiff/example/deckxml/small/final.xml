@@ -1,0 +1,14 @@
+<deck>
+
+<!--DELETED: <canvas width="792" height="612"/> -->
+<slide>
+<!--SAME--><text align="c" xp="50" yp="50" sp="10" >decksh tests</text>
+</slide>
+
+<slide>
+<!--CHANGED--><text align="c" xp="50" yp="92" sp="4" >Empty - CHANGED</text>
+</slide>
+
+<slide bg="orange">
+<text align="c" xp="50" yp="92" sp="4" >Background color only</text>
+</slide>

@@ -1,0 +1,10 @@
+--- ./json/small/test-01.json
++++ ./json/small/test-02.json
+@@ -1,4 +1,5 @@
+ {
+     "a": [1, 2, 3],
+-    "b": { "foo": "bar" }
++    "c": [1, 2, 3],
++    "d": { "foo": "bar" }
+ }
+\ No newline at end of file

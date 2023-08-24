@@ -22,6 +22,11 @@ print:
 	$(MAKE) env-print
 
 all: dep-all build-all
+
+### CLEAN
+
+clean:
+	#$(MAKE) go-clean
 	
 ### ENV
 
