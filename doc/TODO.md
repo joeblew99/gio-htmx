@@ -2,58 +2,76 @@
 
 VERY IMPORTANT !
 
+fix go.mk
+
 - cmd/release-crush/example creates a binary outside the .bin.
-- fix go.mk so it does not do this, so we do not screw up our git repo.
+- so it does not do this, so we do not screw up our git repo.
+
+fix gio.mk for windows
+
+- so that for windows build the .syso files are deleted after build.
+- It screws everything the 2nd time you build.
+
+Packaging: Get an installable build out
+
+- this is high priority because e need to see ANY bugs that the current basic code has now.
+- For Client and Server as one install.
+- Server is a Service on Desktops always running.
+- For Mac and Windows is partially done in gio.mk, as GIO does not do it.
+- Signing for Mac
+- Publishing as pkg ( mac ) and msi ( windows )
+  - This looks perfect and can be started in "exp" to test it out.
+  - https://github.com/gohugoio/hugoreleaser
+- Publish to s3:
+  - https://github.com/bep/s3deploy
+- mkcert embed to our Server, so that users on desktop don't need it as a separate binary.
+  - https://github.com/bep/mclib
+
+---
+
+GUI
+
+- add Panes, like explained in the README.md
+  - add Left Pane as tree view
+  - add mid pane as Webview ( load the markdown plugin for now)
+    - https://github.com/gioui-plugins/gio-plugins/tree/main/webviewer can do it.
+  - add Right Pane as tree view
+- add Nav
+  - suggest looking at https://github.com/g45t345rt/g45w because he has GIO nav working on Desktop, Mobile and web nicely and we will need a decent nav system.
+
+
+plugins
+
+- Make 2 plugins to get going
+  - deck
+  - markdown ( first one )
+
+deck plugin
+
+- add makefile for deck builder that supports fork syncing.
 
 aqua
 
 - all document types as wasm plugins (see plugin folder ), and so we need to get aqua integrated.
-- I am certain that its best if we wrap aqua because its code is really confusing.
-- add example to "exp" folder, so we can test it there.
-
-basic GUI scaffold is done.
-
-- just to get the architecture building.
-- its the markdown editor for now.
-- we need to add the Panes, like explained in the README.md
-- suggest looking at https://github.com/g45t345rt/g45w because he has GIO nav working on Desktop, Mobile and web nicely and we will need a decent nav system.
-- MIddle PANE MUST be a Webview: https://github.com/gioui-plugins/gio-plugins/tree/main/webviewer can do it.
-
-- Make 2 plugins to get going
-  - deck
-  - markdown.
-
-deck
-
-- add makefile for deck builder that supports fork syncing.
-
-fix gio.mk for windows
-
-- so that for windows build the .syso files are deleted after build. 
-- It screws up the 2nd time you build.
+- Its best if we wrap aqua because its code is really confusing.
 
 appicon.png
 
 - just add some default one.
 - gio.mk wants it
 
-deeplinks
+GUI - deeplinks
 
 - https://github.com/gioui/gio/pull/117
 - add gio deep link support, so that the Desktop reacts to when a user clicks on a .ext. WTF do we use for a file extension ? .gio maybe.
 - Check that Web works, so that if you have the desktop client it uses that, and if not it users the web version.
+- add "Create Project" like explained in the "doc/README.md"
+  - this will test the deep link.
 
-hyperlinks
+GUI - hyperlinks
 
 - https://github.com/gioui/gio-x/pull/17 so that hyperlinks work on all platforms.
 
-Packaging
-
-- For Client and Server ...
-- For Mac and Windows is partially done in gio.mk, as GIO does not do it.
-- Signing for Mac
-- Publishing as pkg ( mac ) and msi ( windows )
-- We need the Server to be a Service that is always running on the standard port.
 
 versioning
 
