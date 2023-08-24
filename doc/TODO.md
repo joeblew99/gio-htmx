@@ -14,9 +14,14 @@ aqua
 basic GUI scaffold is done.
 
 - just to get the architecture building.
-- its the markdown editor.
+- its the markdown editor for now.
 - we need to add the Panes, like explained in the README.md
 - suggest looking at https://github.com/g45t345rt/g45w because he has GIO nav working on Desktop, Mobile and web nicely and we will need a decent nav system.
+- MIddle PANE MUST be a Webview: https://github.com/gioui-plugins/gio-plugins/tree/main/webviewer can do it.
+
+- Make 2 plugins to get going
+  - deck
+  - markdown.
 
 deck
 

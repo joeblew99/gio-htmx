@@ -1,0 +1,42 @@
+# Copy and then just change "NAME" to your plugin name
+
+SC=$(PWD)/../../_make
+include $(SC)/caddy.mk
+include $(SC)/gio.mk
+include $(SC)/go.mk
+
+BIN=$(PWD)/.bin
+export PATH:=$(PATH):$(BIN)
+
+BIN_PUS_NAME=NAME
+BIN_PUS=$(BIN)/$(BIN_PUS_NAME)
+
+SRC=$(PWD)/
+
+print:
+
+bin-init:
+	mkdir -p $(BIN)
+
+
+### EXAMPLE 
+
+GO_SRC_NAME=NAME
+GO_SRC_FSPATH=$(PWD)
+
+GIO_SRC_NAME=NAME
+GIO_SRC_FSPATH=$(PWD)
+
+mod-up:
+	$(MAKE) go-mod-upgrade
+build:
+	$(MAKE) go-build
+	$(MAKE) gio-build
+build-all:
+	$(MAKE) go-build-all
+	$(MAKE) gio-build-all
+run:
+	# works :)
+	$(MAKE) go-run
+
+

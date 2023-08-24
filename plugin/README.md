@@ -6,6 +6,10 @@ We use WASM, because then its easy to distribute them at runtime.
 
 We will extend aqua or use NATS to act as a Registry and Proxy runner.
 
+## Makefile template
+
+Just copy it when you make a new plugin.
+
 ## Runner
 
 https://github.com/tetratelabs/wazero is the WASM runner that runs on Desktops and Cloud.
