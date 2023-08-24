@@ -51,6 +51,8 @@ See the [Doc](doc/README.md) folder to see how it works.
 
 ## Contribute
 
+We dont use branches, so git.mk is hard coded to use "main" branch.
+
 We use ssh signing for github. Steps:
 
 - fork this repo on github

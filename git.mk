@@ -3,7 +3,7 @@ git-print:
 	@echo "-- GIT --"
 
 git-init:
-	# do this after you have locally don a git clone,
+	# do this after you have locally done a git clone,
 	# so it uses your auth stuff.
 
 	# dont forget to add your key in your terminal...
@@ -12,6 +12,7 @@ git-init:
 	git config --local user.name "$(GIT_USER_NAME)"
 	git config --local user.email "$(GIT_USER_EMAIL)"
 
+	# signs with ssh key and forces git to use ssh, and so not be dependent if you have github cli or whatever ...
 	git config --local core.sshCommand "ssh -i $(GIT_USER_SSH)"
 
 git-upstream-set:
