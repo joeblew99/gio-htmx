@@ -8,6 +8,7 @@ include $(SC)/go.mk
 include $(SC)/goreman.mk
 include $(SC)/minio.mk
 include $(SC)/nats.mk
+include $(SC)/weaver.mk
 
 # MUST be last
 include .env-git
@@ -50,6 +51,7 @@ dep-print:
 	$(MAKE) goreman-print
 	$(MAKE) minio-print
 	$(MAKE) nats-print
+	$(MAKE) weaver-print
 
 dep-all:
 	$(MAKE) caddy-dep
@@ -57,6 +59,7 @@ dep-all:
 	$(MAKE) goreman-dep
 	$(MAKE) minio-dep
 	$(MAKE) nats-dep
+	$(MAKE) weaver-dep
 	
 start-goreman:
 	# DONT USE. Its leaking processes.

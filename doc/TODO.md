@@ -60,6 +60,13 @@ Embedding
 
 - Caddy can embed NATS Leaf so we have both HTTP and NATS transports.
 - Cloud can also use this embedding, as NATS Cluster can link to NATS Leaf.
+- Be aware that anything that is deployed to Desktop MUST be signed, and so embedding means that we only need to sign one thing.
+- that why i am trying to leverage NATS for as many things as possible.
+- for example: https://github.com/sandstorm/caddy-nats-bridge might work well ?
+
+weaver
+- k8 for goang projects: https://serviceweaver.dev/
+- if we embed out code inside this we get Desktop and Cloud from one code base.
 
 secrets
 
