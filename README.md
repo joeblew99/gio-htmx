@@ -13,6 +13,38 @@ make start-nats
 
 ```
 
+## Folders
+
+_make:
+- our generic makefiles
+
+.bin:
+- holds all binaries that we run.
+
+.data:
+
+- holds all runtime data for NATS, CADDY, etc
+
+cmd
+
+- golang entry points
+
+doc
+
+- markdown for docs
+
+exp
+
+- dumping ground for experiments.
+
+pkg
+
+- golang packages
+
+plugin
+
+- document type plugins.
+
 ## Docs
 
 See the [Doc](doc/README.md) folder to see how it works.
