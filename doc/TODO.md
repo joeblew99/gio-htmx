@@ -5,9 +5,18 @@ VERY IMPORTANT !
 - cmd/release-crush/example creates a binary outside the .bin.
 - fix go.mk so it does not do this, so we do not screw up our git repo.
 
+aqua
+
+- all document types as wasm plugins (see plugin folder ), and so we need to get aqua integrated.
+- I am certain that its best if we wrap aqua because its code is really confusing.
+- add example to "exp" folder, so we can test it there.
+
 basic GUI scaffold is done.
 
 - just to get the architecture building.
+- its the markdown editor.
+- we need to add the Panes, like explained in the README.md
+- suggest looking at https://github.com/g45t345rt/g45w because he has GIO nav working on Desktop, Mobile and web nicely and we will need a decent nav system.
 
 deck
 

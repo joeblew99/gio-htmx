@@ -2,6 +2,7 @@ SC=$(PWD)/_make
 
 include git.mk
 
+include $(SC)/aqua.mk
 include $(SC)/caddy.mk
 include $(SC)/gio.mk
 include $(SC)/go.mk
@@ -57,6 +58,7 @@ env-print:
 ### DEPS
 
 dep-print:
+	$(MAKE) aqua-print
 	$(MAKE) caddy-print
 	$(MAKE) gio-print
 	$(MAKE) go-print
@@ -66,6 +68,7 @@ dep-print:
 	$(MAKE) weaver-print
 
 dep-all:
+	$(MAKE) aqua-dep
 	$(MAKE) caddy-dep
 	$(MAKE) gio-dep
 	$(MAKE) goreman-dep
